@@ -15,6 +15,7 @@ export default function ListProfils(props) {
   const [visible, setvisible] = useState(false)
   const currentid =props.route.params.currentid;
   const ref_profils = database.ref('profils');
+  console.log(currentid,"current")
 
   useEffect(() => {
     ref_profils.on("value",(snapshot)=>{
@@ -53,10 +54,6 @@ export default function ListProfils(props) {
           <Text style={styles.contactPhone}>{item.phone}</Text>
         </View>
       </View>
-      {/* <TouchableOpacity onPress={() => { 
-             props.navigation.navigate("Chat" , {currentid, secondid:item}); }}>
-      <Icon name="chat" size={24} color="pink" style={styles.chatIcon} />
-      </TouchableOpacity> */}
     </View>
   );
 
@@ -87,7 +84,7 @@ export default function ListProfils(props) {
               <Text style={styles.contactPhone}>{item.phone}</Text>
               <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate("chat", {currentid, secondid:item})
+                props.navigation.navigate("chat", {currentid, seconditem:item})
               }}>
               <Icon name="chat" size={24} color="#FFC436" style={styles.chatIcon} />
               </TouchableOpacity>
